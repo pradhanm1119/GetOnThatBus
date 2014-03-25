@@ -58,7 +58,7 @@
     
     // Set pin image attributes
     MKPinAnnotationView *pin = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:nil];
-    //pin.image = [UIImage imageNamed:@"denver"];
+    pin.image = [UIImage imageNamed:@"Chicago-1"];
     pin.canShowCallout = YES;
     pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     

@@ -43,6 +43,10 @@
             MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
             MKPointAnnotation *annotation = [MKPointAnnotation new];
             annotation.coordinate = centerCoordinate;
+            
+            annotation.title = stop[@"cta_stop_name"];
+            annotation.subtitle = stop[@"routes"];
+            NSLog(@"Title %@", annotation.title);
             self.myMapView.region = region;
             [self.myMapView addAnnotation:annotation];
         }

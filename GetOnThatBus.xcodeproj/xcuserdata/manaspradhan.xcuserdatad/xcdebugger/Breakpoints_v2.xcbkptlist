@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GetOnThatBus/MPRViewController.m"
-            timestampString = "417472941.835494"
+            timestampString = "417475864.042034"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "@implementation MPRViewController"
             landmarkType = "3">
          </BreakpointContent>

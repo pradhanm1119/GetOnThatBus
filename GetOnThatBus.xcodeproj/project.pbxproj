@@ -21,6 +21,7 @@
 		261DD5D118E20634008407E3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 261DD5B318E20634008407E3 /* UIKit.framework */; };
 		261DD5D918E20634008407E3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 261DD5D718E20634008407E3 /* InfoPlist.strings */; };
 		261DD5DB18E20634008407E3 /* GetOnThatBusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 261DD5DA18E20634008407E3 /* GetOnThatBusTests.m */; };
+		261DD5E518E20648008407E3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 261DD5E418E20648008407E3 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		261DD5D618E20634008407E3 /* GetOnThatBusTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GetOnThatBusTests-Info.plist"; sourceTree = "<group>"; };
 		261DD5D818E20634008407E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		261DD5DA18E20634008407E3 /* GetOnThatBusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetOnThatBusTests.m; sourceTree = "<group>"; };
+		261DD5E418E20648008407E3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				261DD5E518E20648008407E3 /* MapKit.framework in Frameworks */,
 				261DD5B218E20634008407E3 /* CoreGraphics.framework in Frameworks */,
 				261DD5B418E20634008407E3 /* UIKit.framework in Frameworks */,
 				261DD5B018E20634008407E3 /* Foundation.framework in Frameworks */,
@@ -101,6 +104,7 @@
 		261DD5AE18E20634008407E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				261DD5E418E20648008407E3 /* MapKit.framework */,
 				261DD5AF18E20634008407E3 /* Foundation.framework */,
 				261DD5B118E20634008407E3 /* CoreGraphics.framework */,
 				261DD5B318E20634008407E3 /* UIKit.framework */,

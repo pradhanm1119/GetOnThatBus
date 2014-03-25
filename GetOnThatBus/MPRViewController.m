@@ -7,23 +7,61 @@
 //
 
 #import "MPRViewController.h"
+#import <MapKit/MapKit.h>
 
-@interface MPRViewController ()
-
+@interface MPRViewController () <MKMapViewDelegate>
+{
+    NSDictionary       *myMapDictionary;
+    NSArray            *myTransitStops;
+}
+@property (strong, nonatomic) IBOutlet MKMapView *myMapView;
 @end
 
 @implementation MPRViewController
 
 - (void)viewDidLoad
 {
+    NSURL *mapURL = [NSURL URLWithString:@"https://s3.amazonaws.com/mobile-makers-lib/bus.json"];
+    NSURLRequest *mapURLRequest = [NSURLRequest requestWithURL:mapURL];
+    
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    [NSURLConnection sendAsynchronousRequest:mapURLRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        
+        myMapDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        
+        myTransitStops = myMapDictionary[@"row"];
+        NSLog(@"%@", myTransitStops);
+        
+        for (NSDictionary *stop in myTransitStops)
+        {
+            double latitude = [stop[@"latitude"]doubleValue];
+            double longitude = [stop[@"longitude"]doubleValue];
+            
+            CLLocationCoordinate2D centerCoordinate = CLLocationCoordinate2DMake(latitude, longitude);
+            MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.4, 1.0);
+            MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
+            MKPointAnnotation *annotation = [MKPointAnnotation new];
+            annotation.coordinate = centerCoordinate;
+            self.myMapView.region = region;
+            [self.myMapView addAnnotation:annotation];
+        }
+    }];
 }
 
-- (void)didReceiveMemoryWarning
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if (annotation == mapView.userLocation)
+    {
+        return nil;
+    }
+    
+    // Set pin image attributes
+    MKPinAnnotationView *pin = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:nil];
+    //pin.image = [UIImage imageNamed:@"denver"];
+    pin.canShowCallout = YES;
+    pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    
+    return pin;
 }
-
 @end

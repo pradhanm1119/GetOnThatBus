@@ -68,4 +68,9 @@
     
     return pin;
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(MKMapView *)sender
+{
+
+}
 @end
